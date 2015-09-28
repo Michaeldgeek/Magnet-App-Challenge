@@ -23,3 +23,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
 }
+repositories {
+    maven { url 'http://yanzm.github.io/MaterialTabHost/repository' }
+}
+
+dependencies {
+    compile 'net.yanzm:mth:1.0.4'
+}
