@@ -1,30 +1,37 @@
 package lol.challenge.magnet.android.lol;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.sromku.simple.fb.SimpleFacebook;
+import com.sromku.simple.fb.SimpleFacebookConfiguration;
 
 import net.yanzm.mth.MaterialTabHost;
 
 import java.util.Locale;
 
+import lol.challenge.magnet.android.lol.constants.Constant;
+
 public class MainActivity extends AppCompatActivity{
+
+    private SimpleFacebook mSimpleFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // setup facebook api
+        initFacebook();
         if (getSupportActionBar() != null) {
             getSupportActionBar().setElevation(0);
         }
@@ -50,6 +57,12 @@ public class MainActivity extends AppCompatActivity{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mSimpleFacebook = SimpleFacebook.getInstance(this);
+    }
+    
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -69,6 +82,21 @@ public class MainActivity extends AppCompatActivity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void initFacebook() {
+        SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
+                .setAppId(getString(R.string.app_id))
+                .setNamespace(getString(R.string.app_name_space))
+                .setPermissions(Constant.permissions)
+                .build();
+        SimpleFacebook.setConfiguration(configuration);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        mSimpleFacebook.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

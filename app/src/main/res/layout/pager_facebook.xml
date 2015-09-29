@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#FAFAFA"
     android:layout_height="match_parent">
 
     <TextView
@@ -31,5 +34,23 @@
         android:textSize="18sp"
         android:layout_marginTop="@dimen/invite_friends"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/invite_friends"
+        android:layout_marginLeft="@dimen/invite_friends"
+        android:layout_marginRight="@dimen/invite_friends"
+        android:text="@string/com_facebook_loginview_log_in_button_long"
+        android:gravity="center"
+        android:textColor="@color/md_white_1000"
+        android:textSize="14sp"
+        android:background="@drawable/com_facebook_button_background"
+        android:drawableLeft="@drawable/com_facebook_button_icon"
+        android:drawablePadding="10dp"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="20dp"
+        />
+
 
 </LinearLayout>
+    </ScrollView>

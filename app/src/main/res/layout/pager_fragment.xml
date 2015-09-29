@@ -8,4 +8,12 @@
     tools:context=".MainActivity$PlaceholderFragment">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Still to come"
+        android:id="@+id/textView"
+        android:layout_centerInParent="true"
+        android:textSize="25sp"
+        android:textColor="#8B8B8B"/>
 </RelativeLayout>
