@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.sromku.simple.fb.SimpleFacebook;
 import com.sromku.simple.fb.SimpleFacebookConfiguration;
@@ -21,20 +22,36 @@ import net.yanzm.mth.MaterialTabHost;
 import java.util.Locale;
 
 import lol.challenge.magnet.android.lol.constants.Constant;
-
-public class MainActivity extends AppCompatActivity{
+import lol.challenge.magnet.android.lol.adapter.ChatAdapter;
+/**
+ * According to facebook documentation,
+ * the facebook api has to be initialized first before call to setContentView.
+ * I called the initFacebook() method which I defined in the MainActivity class.
+ * In the initFacebook() method, I configured the third-party library which
+ * wraps up the Facebook sdk. Check link to know more about this library
+ *https://github.com/sromku/android-simple-facebook/wiki/Configuration
+ * And take a look at the Facebook api documentation(not compulsory since we are using a third-party)
+ * https://developers.facebook.com/docs/android
+ *
+ */
+public class MainActivity extends AppCompatActivity  {
 
     private SimpleFacebook mSimpleFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initFacebook();
         setContentView(R.layout.activity_main);
         // setup facebook api
-        initFacebook();
         if (getSupportActionBar() != null) {
             getSupportActionBar().setElevation(0);
         }
+        /**
+         * Used a third-party library for the tabs. You can check the
+         * documentation here. Based on the instruction there I wrote
+         * the remaining codes. https://github.com/yanzm/MaterialTabHost
+         */
         MaterialTabHost tabHost = (MaterialTabHost) findViewById(android.R.id.tabhost);
         tabHost.setType(MaterialTabHost.Type.FullScreenWidth);
         SectionsPagerAdapter pagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -45,7 +62,7 @@ public class MainActivity extends AppCompatActivity{
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOnPageChangeListener(tabHost);
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(1); // Added this line myself so that the tab is set to chat tab when run.
 
         tabHost.setOnTabChangeListener(new MaterialTabHost.OnTabChangeListener() {
             @Override
@@ -76,7 +93,7 @@ public class MainActivity extends AppCompatActivity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -98,6 +115,8 @@ public class MainActivity extends AppCompatActivity{
         mSimpleFacebook.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -164,10 +183,18 @@ public class MainActivity extends AppCompatActivity{
                 rootView = inflater.inflate(R.layout.pager_facebook, container, false);
                 return rootView;
             }
+            else if (getArguments().getInt(ARG_SECTION_NUMBER)== 2) {
+                // Chat Fragment
+                rootView = inflater.inflate(R.layout.pager_chats, container, false);
+                ListView chat_listView = (ListView) rootView.findViewById(R.id.chat_list);
+                chat_listView.setAdapter(new ChatAdapter(getActivity()));
+                return rootView;
+            }
             else {
                 rootView = inflater.inflate(R.layout.pager_fragment, container, false);
                 return rootView;
             }
         }
-    }
+
+            }
 }

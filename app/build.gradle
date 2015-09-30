@@ -26,6 +26,7 @@ dependencies {
     compile files('libs/picasso-2.5.2.jar')
     compile 'com.sromku:simple-fb:4.0.8'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile files('libs/android-viewbadger.jar')
 }
 repositories {
     maven { url 'http://yanzm.github.io/MaterialTabHost/repository' }

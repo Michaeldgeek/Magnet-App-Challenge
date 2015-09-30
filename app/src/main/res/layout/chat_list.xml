@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingRight="15dp"
+    android:layout_height="68dp" >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/profile_thumb"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/michael"
+        />
+    <View
+        android:id="@+id/invisible_for_badge_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/profile_thumb"
+        android:layout_alignLeft="@+id/profile_thumb"
+        android:layout_alignRight="@+id/profile_thumb"
+        android:layout_alignTop="@+id/profile_thumb" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/profile_thumb"
+        android:paddingTop="10dp"
+        android:id="@+id/username_relative_layout"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username"
+            android:textSize="18sp"
+            android:text="Username"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:textColor="#212121"
+            android:layout_toLeftOf="@+id/date"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date"
+            android:textSize="12sp"
+            android:textColor="@color/md_blue_grey_300"
+            android:text="2015 SEP 28, Mon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/profile_thumb"
+        android:id="@+id/message_relative_layout"
+        android:layout_below="@+id/username_relative_layout"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/message_got_read_receipt_from_target"
+            android:background="@android:color/transparent"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/delivered_icon"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/message"
+            android:textSize="16sp"
+            android:text="Message"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:textColor="#A2A2A2"
+            android:layout_toLeftOf="@+id/circle_text"
+            android:layout_toRightOf="@+id/delivered_icon"
+            android:layout_centerVertical="true"
+
+            />
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textSize="14sp"
+            android:text="1"
+            android:textColor="@color/md_white_1000"
+            android:gravity="center"
+            android:background="@drawable/circle_text"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/circle_text"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginLeft="77dp"
+        android:background="#E6E6E6"/>
+</RelativeLayout>
