@@ -51,3 +51,14 @@ repositories {
 dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
 }
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.github.paolorotolo:appintro:3.2.0'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.0'
+    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+
+}

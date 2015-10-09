@@ -306,4 +306,9 @@
     <!--ends-->
     >
 
+    <!--button colors-->
+    <color name="login_help_button_label">#E0E0E0</color>
+    <color name="login_help_button_label_push">#AAAAAA</color>
+    <color name="login_help_button_label_focus">#CCCCCC</color>
+
 </resources>
