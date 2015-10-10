@@ -18,4 +18,12 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_registration">Registration</string>
     <string name="title_activity_whisperers">Whisperers</string>
+    <string name="title_activity_chat">Chats</string>
+
+
+
+    //from example of magnet api
+    <string name="email_label_text">Username</string>
+    <string name="message_hint">Message</string>
+
 </resources>

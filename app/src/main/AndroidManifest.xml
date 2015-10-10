@@ -46,6 +46,10 @@
             android:name=".WhisperersActivity"
             android:label="@string/title_activity_whisperers" >
         </activity>
+        <activity
+            android:name=".ChatActivity"
+            android:label="@string/title_activity_chat" >
+        </activity>
     </application>
 
 </manifest>

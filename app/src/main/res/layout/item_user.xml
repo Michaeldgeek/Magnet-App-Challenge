@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:fbutton="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="96dp"
+card_view:cardElevation="4dp"
+  >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="12dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--android:id="@+id/profile_thumb"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:padding="10dp"-->
+            <!--android:src="@drawable/michael"-->
+
+            <!--/>-->
+        <!--app:civ_border_color="#FF000000"-->
+        <!--app:civ_border_width="2dp" -->
+
+        <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/transparent"
+        android:padding="10dp"
+        android:src="@drawable/chizoba"
+            />
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="3"
+                android:text="@string/email_label_text"
+                android:textColor="#333"
+                android:textIsSelectable="false"
+                android:textSize="22sp" />
+
+            <info.hoang8f.widget.FButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+
+                fbutton:buttonColor="@color/fbutton_color_wet_asphalt"
+                fbutton:cornerRadius="8dp"
+                fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+                fbutton:shadowEnabled="false"
+                fbutton:shadowHeight="4dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                />
+            <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight=""-->
+            <!--android:text="add" />-->
+        </LinearLayout>
+    <!--</LinearLayout>-->
+
+</android.support.v7.widget.CardView>

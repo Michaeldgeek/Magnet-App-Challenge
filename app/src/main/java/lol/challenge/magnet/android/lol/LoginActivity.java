@@ -25,16 +25,11 @@ public class LoginActivity extends AppCompatActivity {
     Button buttonSignUp;
     EditText userName, passWord;
 
-    private SharedPreferences settings;
-    private boolean firstRun;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        settings = getSharedPreferences("prefs", 0);
-        firstRun = settings.getBoolean("firstRun", true);
 
         //GET YOUR WHISPER.PROPERTIES FROM YOUR SANDBOX INTO THE RAW FOLDER, THEN UNCOMMENT THIS SECTION
         //TO PREVENT APP FROM CRASHING
@@ -42,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
         // whisper.properties configures Magnet Message endpoints
 //        MMX.init(this, R.raw.whisper);
 
-        if (firstRun) {
             ActionBar actionBar = getSupportActionBar();
             actionBar.hide();
 
@@ -80,9 +74,6 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(i);
                 }
             });
-        } else {
-            loadMainActivity();
-        }
     }
 
     private void attemptLogin(String user, byte[] pass) {
@@ -112,17 +103,9 @@ public class LoginActivity extends AppCompatActivity {
         intent = new Intent(LoginActivity.this, WhisperersActivity.class);
         startActivity(intent);
     }
+//
+// STILL UNDER CONSTRUCTION
 
-    private void loadMainActivity() {
-
-        settings = getSharedPreferences("prefs", 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean("firstRun", false);
-        editor.apply();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
